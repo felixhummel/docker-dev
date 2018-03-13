@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  dev:
+    image: felix/dev
+    build: .
+    working_dir: /mnt
+    environment:
+      - TERM
+    volumes:
+      - ./work:/mnt
+    stop_signal: SIGINT
