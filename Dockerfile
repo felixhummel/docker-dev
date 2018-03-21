@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update \
-    && apt-get --yes install \
+RUN apt-get update && apt-get --yes install \
       atool \
       bash-completion \
       curl \
@@ -10,6 +9,7 @@ RUN apt-get update \
       htop \
       inotify-tools \
       iotop \
+      iputils-ping \
       jnettop \
       lftp \
       lsof \
@@ -19,11 +19,13 @@ RUN apt-get update \
       pwgen \
       python-optcomplete \
       rsync \
+      telnet \
       tmux \
       tofrodos \
       tree \
       vim-nox \
-      whois
+      whois \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/felixhummel/configs.git /root/configs \
     && cd /root/configs \
