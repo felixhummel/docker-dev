@@ -48,6 +48,11 @@ RUN git clone https://github.com/felixhummel/configs.git /root/configs \
     && rm -r /root/bak \
     && vim +PlugInstall +qall >/dev/null 2>/dev/null
 
+ARG KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v1.14.3/bin/linux/amd64/kubectl
+RUN cd /usr/local/bin/ \
+    && curl -LO $KUBECTL_URL \
+    && chmod +x /usr/local/bin/kubectl
+
 WORKDIR /mnt
 
 VOLUME /mnt
