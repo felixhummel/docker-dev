@@ -5,7 +5,7 @@ Useful for debugging docker networks and pods or simply hacking on some scripts.
 
 # Usage
 ```
-docker run -it --rm -w /mnt -v $PWD:/mnt felix/dev
+docker run -it --rm felix/dev:v1.0.0
 ```
 
 
