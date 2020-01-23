@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian:buster
 
 ARG DOCKER_URL=https://download.docker.com/linux/static/stable/x86_64/docker-18.06.1-ce.tgz
 ARG COMPOSE_URL=https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
