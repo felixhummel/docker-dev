@@ -20,6 +20,7 @@ RUN apt-get update && apt-get --yes install \
       net-tools \
       netcat-openbsd \
       nmap \
+      procps \
       pwgen \
       python-optcomplete \
       rsync \
