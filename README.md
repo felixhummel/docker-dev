@@ -14,7 +14,7 @@ docker run -it --rm felix/dev:v1.0.0
 ```
 mkdir -p kube
 wget https://raw.githubusercontent.com/felixhummel/docker-dev/v1.0.0/kube/dev/yml \
-  -O kube/dev/yml
+  -O kube/dev.yml
 
 kubectl apply -f kube/dev.yml
 kubectl get deploy dev --watch
