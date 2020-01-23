@@ -1,12 +1,14 @@
 version: '3.7'
 
 services:
-  dev:
-    image: felix/dev
+  app:
+    image: felix/dev:compose-build
     build: .
-    working_dir: /mnt
     environment:
       - TERM
     volumes:
-      - ./work:/mnt
+      - home:/root
     stop_signal: SIGINT
+
+volumes:
+  home:

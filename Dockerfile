@@ -42,17 +42,20 @@ RUN cd /tmp \
 RUN wget --quiet $COMPOSE_URL -O /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
+WORKDIR /root
+
 RUN git clone https://github.com/felixhummel/configs.git /root/configs \
     && cd /root/configs \
     && ./init --email 'root@felix-dev.example.org' --name "I AM ROOT" --force \
-    && rm -r /root/bak \
-    && vim +PlugInstall +qall >/dev/null 2>/dev/null
+    && ./pluginstall \
+    && rm -r /root/bak
 
 ARG KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v1.14.3/bin/linux/amd64/kubectl
 RUN cd /usr/local/bin/ \
     && curl -LO $KUBECTL_URL \
     && chmod +x /usr/local/bin/kubectl
 
-WORKDIR /mnt
+COPY sleep-infinity /usr/local/bin/sleep-infinity
+CMD ["/usr/local/bin/sleep-infinity"]
 
-VOLUME /mnt
+

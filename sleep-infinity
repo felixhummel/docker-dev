@@ -1,0 +1,5 @@
+#!/bin/bash
+# make "docker-compose down" fast
+# https://github.com/docker/compose/issues/1926#issuecomment-422351028
+trap : SIGINT SIGTERM
+sleep infinity & wait
