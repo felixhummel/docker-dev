@@ -54,7 +54,15 @@ RUN git clone https://github.com/felixhummel/configs.git /root/configs \
 ARG KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v1.14.3/bin/linux/amd64/kubectl
 RUN cd /usr/local/bin/ \
     && curl -LO $KUBECTL_URL \
-    && chmod +x /usr/local/bin/kubectl
+    && chmod +x /usr/local/bin/kubectl \
+    && kubectl version --client
+
+# https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+RUN cd /tmp \
+  && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install \
+  && aws --version
 
 COPY sleep-infinity /usr/local/bin/sleep-infinity
 CMD ["/usr/local/bin/sleep-infinity"]
